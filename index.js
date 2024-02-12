@@ -9,4 +9,7 @@ app.get("/outfit", (req, res) => {
     res.send("This is working!");
 });
 
-app.listen(3000, () => console.log("API server is running"));
+const server = app.listen(3000, () => {
+    const { address, port } = server.address();
+    console.log(`API server is running at http://${address}:${port}`);
+});
